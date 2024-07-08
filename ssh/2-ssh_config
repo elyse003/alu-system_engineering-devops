@@ -1,15 +1,11 @@
 #!/bin/bash
 
-# Create the SSH client configuration file
-config_file=~/.ssh/config
+# Create or open the SSH configuration file
+cat <<EOL >> ~/.ssh/config
+Host your_server_alias
+    HostName 8.8.8.8
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+EOL
 
-# Add configuration to the file
-echo "Host example_server" >> "$config_file"
-echo "    HostName 98.98.98.98" >> "$config_file"
-echo "    User ubuntu" >> "$config_file"
-echo "    IdentityFile ~/.ssh/school" >> "$config_file"
-echo "    PreferredAuthentications publickey" >> "$config_file"
-echo "    PasswordAuthentication no" >> "$config_file"
-
-# Output the configuration to the user
-cat "$config_file"
