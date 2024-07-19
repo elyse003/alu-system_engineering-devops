@@ -13,7 +13,7 @@ server_config=\
 frontend Elyse-frontend
         bind *:80
         mode http
-        default_backend oreste-backend
+        default_backend Elyse-backend
 backend Elyse-backend
         balance roundrobin
         server 6232-web-01 54.226.218.251:80 check
